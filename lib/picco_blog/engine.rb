@@ -4,11 +4,9 @@ require "friendly_id"
 
 module PiccoBlog
 
-  class << self
-    mattr_accessor :author_class, :include_comments, :include_share_bar, :recent_posts
-    mattr_accessor :posts_per_page, :layout, :post_tagging, :members_only, :members_only_method 
-    mattr_accessor :current_user, :authenticate
-  end
+  mattr_accessor :author_class, :include_comments, :include_share_bar, :recent_posts
+  mattr_accessor :posts_per_page, :layout, :post_tagging, :members_only, :members_only_method 
+  mattr_accessor :current_user, :authenticate
 
   self.include_comments = ""
   self.include_share_bar = ""
