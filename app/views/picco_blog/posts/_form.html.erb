@@ -1,0 +1,48 @@
+<%= form_for(@post) do |f| %>
+  <% if @post.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@post.errors.count, "error") %> prohibited this post from being saved:</h2>
+
+      <ul>
+      <% @post.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <%= f.hidden_field :author_id, :value => current_user.id %>
+
+  <div class="field">
+    <%= f.text_field :title, :placeholder => "Title" %> <br/>
+  </div>
+  <div class="field">
+    <%= f.text_area :text, :class => "picco_blog_editor" %> <br/>
+  </div>
+  <div class="field">
+    <%= f.text_area :excerpt, :class => "picco_blog_editor" %> <br/>
+  </div>
+  <div class="field">
+    <%= f.select :state, PiccoBlog::Post.states.keys.to_a, { include_blank: "Select" } %>
+  </div>
+  <% if PiccoBlog.members_only %>
+    <div class="field">
+      <%= f.check_box :members_only %>
+    </div>
+  <% end %>
+  <div class="field">
+    <%= f.text_field :tag_list, value: @post.tag_list.to_s %> <br/>
+  </div>
+  <div class="field">
+    <% if f.object.featured_image_stored? %>
+      <%= image_tag f.object.featured_image.thumb('200x100').url, :class => "mb16" %>
+    <% end %>
+
+    <%= f.file_field :featured_image %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
+
+<%= javascript_tag "var available_tags = #{@available_tags.to_json.html_safe};" %>

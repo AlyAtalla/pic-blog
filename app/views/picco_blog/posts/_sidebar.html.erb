@@ -1,0 +1,28 @@
+<div id="picco_blog_sidebar">
+  <h4>Search Blog</h4>
+
+  <%= form_tag(posts_path, :method => "get", id: "search-form", enforce_utf8: false) do %>
+    <%= text_field_tag :search, params[:search], placeholder: "Search" %>
+  <% end %>
+
+  <h4>Categories</h4>
+
+  <div>
+    <% @available_tags.any? %>
+      <% @available_tags.each do |tag| %>
+        <p><%= link_to tag, tagged_url(:tag => tag) %></p>
+    <% end %>
+  </div>
+
+  <h4>Recent Posts</h4>
+
+  <div>
+    <% @recent_posts.each do |post| %>
+      <p>
+        <%= link_to post.title, post_path(post) %> 
+        <em>Posted on <%= created_date_display(post) %></em>
+      </p>
+    <% end %>
+  </div>
+
+</div>

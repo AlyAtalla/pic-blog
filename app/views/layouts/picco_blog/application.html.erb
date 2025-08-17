@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title><%= "#{@title} - " if @title %>PiccoBlog</title>
+  <meta name="description" content="<%= @meta_description if @meta_description %>" />
+  <%= stylesheet_link_tag    "picco_blog/application", media: "all" %>
+  <%= javascript_include_tag "picco_blog/application" %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+<%= yield %>
+
+</body>
+</html>
