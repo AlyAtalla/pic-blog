@@ -7,15 +7,11 @@ WORKDIR /app
 # Install dependencies
 RUN apt-get update -qq && apt-get install -y build-essential libpq-dev nodejs
 
-# Copy Gemfiles
-COPY Gemfile /app/Gemfile
-COPY Gemfile.lock /app/Gemfile.lock
+# Copy all files
+COPY . /app
 
 # Install gems
 RUN bundle install
-
-# Copy the rest of the app
-COPY . /app
 
 # Precompile assets and migrate DB
 RUN bundle exec rake assets:precompile
