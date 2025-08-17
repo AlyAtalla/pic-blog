@@ -13,7 +13,7 @@ Gem::Specification.new do |s|
   s.summary     = "PiccoBlog is a simple Ruby on Rails markdown blog engine."
   s.license     = "MIT"
 
-  s.files = Dir["{app,config,db,lib}/**/*", "MIT-LICENSE", "Rakefile", "README.rdoc"]
+  s.files = Dir["{app,config,db,lib}/**/*", "MIT-LICENSE", "Rakefile", "README.rdoc", "Gemfile", "Gemfile.lock", "Dockerfile", "README.md"]
   s.test_files = Dir["test/**/*"]
 
   s.add_dependency "rails", ">= 4.2.4"
