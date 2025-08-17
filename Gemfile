@@ -5,7 +5,6 @@ gemspec
 
 # Production database
 gem 'pg', group: :production
-
 # Development and test database
 gem 'sqlite3', group: [:development, :test]
 
