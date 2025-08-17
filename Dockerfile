@@ -13,8 +13,8 @@ COPY . /app
 # Install gems
 RUN bundle install
 
-# Precompile assets and migrate DB
-RUN bundle exec rake assets:precompile
+RUN bundle exec rake db:migrate
+# Migrate DB
 RUN bundle exec rake db:migrate
 
 # Set environment variables
