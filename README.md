@@ -83,6 +83,6 @@ Please use the [issue tracker](https://github.com/AlyAtalla/blog-app/issues) if 
 Changes are listed in [CHANGELOG.md](https://github.com/AlyAtalla/blog-app/blob/master/CHANGELOG.md)
 
 ## Credits
-[Brandon Bango](https://github.com/brandonbango) - Author
+[ALY ATALLA](https://github.com/AlyAtalla) - Author
 
 This project rocks and uses MIT-LICENSE.
